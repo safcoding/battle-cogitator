@@ -52,7 +52,6 @@ ork_unit = {
         "AP": 0,
         "D": 1,
     }]
-
 }
 
 def calc_wound_value(weapon, defender):
