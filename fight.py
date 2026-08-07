@@ -1,36 +1,47 @@
-import datasheet
+import unit_datasheet
+import helpers
 
-def calc_wound_value(weapon, defender):
-    att_strength = weapon["S"]
-    def_toughness = defender["T"]
+def attack_seq(attacker, defender):
+    weapon_grp = helpers.get_weapons(attacker)
+    seq_log = []
 
-    if att_strength >= def_toughness * 2:
-        print("Need to roll a 2 or more to wound")
-    elif att_strength * 2 < def_toughness:
-              print("Need to roll a 6 or more to wound")  
+    for weapon,data in weapon_grp.items():
+        print(f"\n-----{data["stats"]["name"].upper()} HITS-----")
+        a_stat = data["stats"]["A"]
+        a_stat *= data["count"]
+        print(f"Roll {a_stat} dice for {weapon} ({data["stats"]["BS"]} or more for success hit)")
 
-    elif att_strength > def_toughness:
-              print("Need to roll a 3 or more to wound")  
-    elif att_strength == def_toughness:
-              print("Need to roll a 4 or more to wound")  
-    elif att_strength < def_toughness:
-              print("Need to roll a 5 or more to wound")  
-        
-def calc_save_value(weapon, defender):
-    def_save = defender["SV"]
-    att_ap = weapon["AP"]
+        succ_a = input("Successful attack: ")
 
-    save_value = def_save + att_ap
-    print(f"Need to roll a {save_value} or more to save")
-    
-def calc_dmg(wound, save):
-    total_wound = int(wound) - int(save)
-    return total_wound
+        print(f"\n-----{data["stats"]["name"].upper()} WOUNDS-----")
+        w_value = helpers.calc_wound_value(data,defender)
+        print(f"Roll {succ_a} dice for {weapon} ({w_value} or more for success wound)")
 
+        succ_w = input("Successful wound: ")
+
+
+        print(f"\n-----{data["stats"]["name"].upper()} SAVES-----")
+        sv_value = helpers.calc_save_value(data, defender)
+        print(f"Roll {succ_w} dice to save from {weapon} ({sv_value} or more for success save)")
+
+        succ_sv = input("Successful save: ")
+
+        seq_log.append(f"x{succ_sv} saves from {data["stats"]["name"]}")
+        seq_log.append(f"x{succ_w} {data["stats"]["D"]} damage from {data["stats"]["name"]}")
+
+    print("\n================ SUMMARY ================")
+    for line in seq_log:
+        print(line)
+    print("End of attack sequence")
+
+attack_seq(unit_datasheet.astartes_unit, unit_datasheet.khorne_unit)
+
+
+"""
 def attack_seq(attacker, defender):
     print("Which weapon to attack?")
 
-    for index, weapon in enumerate(attacker["weapons"], start=1):
+    for index, weapon in enumerate(attacker["models"[index]], start=1):
         print(f"{index}. { weapon['name']}")
 
     choice = input("Selected weapon: ")
@@ -45,17 +56,14 @@ def attack_seq(attacker, defender):
     hit_dice = input("Hits: ")
 
     print("-----WOUNDS-----")
-    calc_wound_value(selected_weapon, defender)
+    helpers.calc_wound_value(selected_weapon, defender)
     print("How many successful wounds?")
     wound_dice = input("Wounds: ")
 
     print("-----SAVES-----")
-    calc_save_value(selected_weapon, defender)
+    helpers.calc_save_value(selected_weapon, defender)
     print("Saves?")
     save_dice = input("Saves: ")
-
-
-    total_wound = calc_dmg(wound_dice, save_dice)
 
     print("\n================ SUMMARY ================")
     print(f"{attacker['name']} attacks {defender['name']} with {selected_weapon['name']}!")
@@ -64,3 +72,6 @@ def attack_seq(attacker, defender):
     print(f"• Saves Passed: {save_dice}")
     print(f"• Total Damage Dealt: {selected_weapon['D']} Dmg per unsaved wound")
     print("=========================================")
+
+attack_seq(datasheet.astartes_unit, datasheet.khorne_unit)
+"""
