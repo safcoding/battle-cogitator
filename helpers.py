@@ -38,8 +38,5 @@ def calc_save_value(weapon, defender):
     def_save = defender["SV"]
 
     save_value = def_save + att_ap
-    print(f"Need to roll a {save_value} or more to save")
-    
-def calc_dmg(wound, save):
-    total_wound = int(wound) - int(save)
-    return total_wound
+    return save_value
+
