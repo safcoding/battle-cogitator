@@ -17,6 +17,10 @@ if first_attacker == str(2):
     defender = unit_datasheet.astartes_unit
 
 while len(attacker['models']) > 0 and len(defender['models']) > 0:
+    if len(defender['models']) == 0:
+        print(f"\n🏆 {attacker['name']} has destroyed the enemy! Game Over!")
+        break
+    
     attack_phase(attacker, defender)
     attacker, defender = defender, attacker
     print("Swapping players...")

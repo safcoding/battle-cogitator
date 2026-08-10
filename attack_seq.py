@@ -2,7 +2,6 @@ import helpers
 
 def attack_phase(attacker, defender):
     weapon_grp = helpers.get_weapons(attacker)
-    seq_log = []
 
     for weapon,data in weapon_grp.items():
         print(f"\n-----{data["stats"]["name"].upper()} HITS-----")
@@ -26,15 +25,5 @@ def attack_phase(attacker, defender):
         fail_sv = int(succ_w) - int(succ_sv)
         helpers.dmg_model(fail_sv, defender, data)
 
-        if len(defender['models']) == 0:
-            print(f"\n🏆 {attacker['name']} has destroyed the enemy! Game Over!")
-            break
-
-        seq_log.append(f"x{succ_sv} saves from {data["stats"]["name"]}")
-        seq_log.append(f"x{succ_w} {data["stats"]["D"]} damage from {data["stats"]["name"]}")
-
-    print("\n================ SUMMARY ================")
-    for line in seq_log:
-        print(line)
     print("End of attack sequence\n")
 
