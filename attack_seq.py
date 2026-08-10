@@ -23,7 +23,27 @@ def attack_phase(attacker, defender):
 
         succ_sv = input("Successful save: ")
         fail_sv = int(succ_w) - int(succ_sv)
-        helpers.dmg_model(fail_sv, defender, data)
+
+        for fail in range(fail_sv):
+            damaged_model  = helpers.find_wounded(defender)
+            if damaged_model is not None:
+                print(f"{damaged_model['name']} is already damaged [{damaged_model['curr_w']}/{damaged_model['max_w']} HP]. Allocating damage..")
+                selected_model = damaged_model
+            else:
+                print("\n =====CHOOSE MODEL TO BE DAMAGED=====")
+                for index, model in enumerate(defender["models"]):
+                    print(f"{index}. {model['name']} [{model['curr_w']} HP]")
+                model_index = input("Unit to damage (numbers only): ")
+                selected_model = defender['models'][int(model_index)] 
+
+            result = helpers.dmg_model(selected_model, defender, data)
+
+            if result is False:
+                print(f"\n{selected_model['name']} took damage! [{selected_model['curr_w']} HP left]")
+            elif result is True:
+                print(f"XX {selected_model['name']} is dead. XX")
+
+
 
     print("End of attack sequence\n")
 

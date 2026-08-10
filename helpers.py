@@ -40,31 +40,22 @@ def calc_save_value(weapon, defender):
     save_value = def_save + att_ap
     return save_value
 
-def dmg_model(fail_sv, defender, weapon):
-    for fail in range(fail_sv):
-        if len(defender["models"]) == 0:
-            print("unit is dead")
-            break
+def dmg_model(selected_model, defender, weapon):
+        dead_flag = False
+        selected_model["curr_w"] -= weapon["stats"]["D"]
 
-        target_model = None
+        if selected_model["curr_w"] <= 0:
+            defender["models"].remove(selected_model)
+            dead_flag = True
+            return dead_flag 
+        else:
+            dead_flag = False
+            return dead_flag
 
-        for model in defender['models']:
-            if model["curr_w"] < model["max_w"]:
-                target_model = model
-                print(f"{model['name']} is already damaged [{model['curr_w']} HP]. Allocating damage to {model['name']}")
-                break
-
-        if target_model is None:
-            print("\n =====CHOOSE MODEL TO BE DAMAGED=====")
-            for index, model in enumerate(defender["models"]):
-                print(f"{index}. {model['name']} [{model['curr_w']} HP]")
-
-            selected_model = input("Unit to damage (numbers only): ")
-            target_model = defender["models"][int(selected_model)]
-
-        target_model["curr_w"] -= weapon["stats"]["D"]
-        print(f"\n{target_model['name']} took damage! [{target_model['curr_w']} HP left]")
-
-        if target_model["curr_w"] <= 0:
-            print(f"XX {target_model['name']} is dead. XX")
-            defender["models"].remove(target_model)
+def find_wounded(defender):
+    for model in defender['models']:
+        if model["curr_w"] < model["max_w"]:
+            target_model = model
+            return target_model
+        
+    return None
