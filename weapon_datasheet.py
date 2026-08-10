@@ -15,5 +15,21 @@ weapons = {
         "S": 4,
         "AP": 1,
         "D": 1
+    },
+    "heavy_stubber" : {
+        "name": "Heavy Stubber",
+        "A": 3,
+        "BS": 4,
+        "S": 4,
+        "AP": 0,
+        "D": 1
+    },
+    "cultist_firearm" : {
+        "name": "Cultist Firearm",
+        "A": 1,
+        "BS": 4,
+        "S": 3,
+        "AP": 0,
+        "D": 1
     }
 }

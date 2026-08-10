@@ -10,42 +10,125 @@ astartes_unit = {
     "models": [
         {
             "name": "Intercessor Sergeant",
-            "max_W" : 2,
-            "curr_W": 2,   
+            "max_w" : 2,
+            "curr_w": 2,   
             "r_weapon": "plasma_pistol",
             "m_weapon": "power_fist",
         },
         {
             "name": "Assault Intercessor",
-            "max_W" : 2,
-            "curr_W": 2,   
+            "max_w" : 2,
+            "curr_w": 2,   
             "r_weapon": "heavy_bolt_pistol",
             "m_weapon": "chainsword"
         },
         {
             "name": "Assault Intercessor",
-            "max_W" : 2,
-            "curr_W": 2,   
+            "max_w" : 2,
+            "curr_w": 2,   
             "r_weapon": "heavy_bolt_pistol",
             "m_weapon": "chainsword"
         },
         {
             "name": "Assault Intercessor",
-            "max_W" : 2,
-            "curr_W": 2,   
+            "max_w" : 2,
+            "curr_w": 2,   
             "r_weapon": "heavy_bolt_pistol",
             "m_weapon": "chainsword"
         },
         {
             "name": "Assault Intercessor",
-            "max_W" : 2,
-            "curr_W": 2,   
+            "max_w" : 2,
+            "curr_w": 2,   
             "r_weapon": "heavy_bolt_pistol",
             "m_weapon": "chainsword"
         }
     ]
 }
 
+ts_cult_unit = {
+    "name": "Thousand Sons Cultists",
+    "M" : 6,
+    "T" : 3,
+    "SV": 6,
+    "LD": 7,
+    "OC": 1,
+    "keywords": ["INFANTRY", "CHAOS", "TZEENTCH", "CULTISTS"],
+    "models": [
+        {
+            "name": "Champion",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "heavy_stubber",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+        {
+            "name": "Cultist",
+            "max_w" : 1,
+            "curr_w": 1,   
+            "r_weapon": "cultist_firearm",
+            "m_weapon": "brutal_assault_weapon"
+        },
+    ]
+
+}
 khorne_unit = {
     "name": "Bloodletters",
     "M" : 6,
@@ -58,62 +141,62 @@ khorne_unit = {
     "models": [
         {
             "name": "Bloodreaper",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
         {
             "name": "Bloodletter",
-            "max_W" : 1,
-            "curr_W": 1,   
+            "max_w" : 1,
+            "curr_w": 1,   
             "m_weapon": "hellblade",
         },
     ]

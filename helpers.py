@@ -48,11 +48,18 @@ def dmg_model(fail_sv, defender, weapon):
 
         target_model = None
 
-        for model in defender["models"]:
-            if model["current_w"] < model["max_w"]:
+        for model in defender['models']:
+            if model["curr_w"] < model["max_w"]:
                 target_model = model
                 break
+
         if target_model is None:
             target_model = defender["models"][0]
 
         target_model["curr_w"] -= weapon["stats"]["D"]
+
+        if target_model["curr_w"] <= 0:
+            print(f"{target_model['name']} is dead.")
+            defender["models"].remove(target_model)
+        else:
+            print(f"{target_model['name']} took damage! {target_model['curr_w']} HP left")
