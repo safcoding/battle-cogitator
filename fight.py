@@ -25,6 +25,8 @@ def attack_seq(attacker, defender):
         print(f"Roll {succ_w} dice to save from {weapon} ({sv_value} or more for success save)")
 
         succ_sv = input("Successful save: ")
+        fail_sv = succ_w - succ_sv
+        helpers.dmg_model(fail_sv, defender, data)
 
         seq_log.append(f"x{succ_sv} saves from {data["stats"]["name"]}")
         seq_log.append(f"x{succ_w} {data["stats"]["D"]} damage from {data["stats"]["name"]}")
@@ -33,5 +35,5 @@ def attack_seq(attacker, defender):
     for line in seq_log:
         print(line)
     print("End of attack sequence")
-
+    
 attack_seq(unit_datasheet.astartes_unit, unit_datasheet.khorne_unit)

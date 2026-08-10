@@ -40,3 +40,19 @@ def calc_save_value(weapon, defender):
     save_value = def_save + att_ap
     return save_value
 
+def dmg_model(fail_sv, defender, weapon):
+    for fail in range(fail_sv):
+        if len(defender["models"]) == 0:
+            print("unit is dead")
+            break
+
+        target_model = None
+
+        for model in defender["models"]:
+            if model["current_w"] < model["max_w"]:
+                target_model = model
+                break
+        if target_model is None:
+            target_model = defender["models"][0]
+
+        target_model["curr_w"] -= weapon["stats"]["D"]
