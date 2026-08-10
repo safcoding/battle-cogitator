@@ -18,9 +18,11 @@ if first_attacker == str(2):
 
 while len(attacker['models']) > 0 and len(defender['models']) > 0:
     if len(defender['models']) == 0:
-        print(f"\n🏆 {attacker['name']} has destroyed the enemy! Game Over!")
+        print(f"\n🏆 {attacker['name']} has destroyed the enemy!\n")
+        print(f"SUBMITTED TO ASTROPATHIC RELAY.")
+        print(f"HAIL THE OMNISSIAH. HAIL THE MACHINE GOD.")
         break
-    
+
     attack_phase(attacker, defender)
     attacker, defender = defender, attacker
     print("Swapping players...")

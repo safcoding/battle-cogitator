@@ -51,15 +51,20 @@ def dmg_model(fail_sv, defender, weapon):
         for model in defender['models']:
             if model["curr_w"] < model["max_w"]:
                 target_model = model
+                print(f"{model['name']} is already damaged [{model['curr_w']} HP]. Allocating damage to {model['name']}")
                 break
 
         if target_model is None:
-            target_model = defender["models"][0]
+            print("\n =====CHOOSE MODEL TO BE DAMAGED=====")
+            for index, model in enumerate(defender["models"]):
+                print(f"{index}. {model['name']} [{model['curr_w']} HP]")
+
+            selected_model = input("Unit to damage (numbers only): ")
+            target_model = defender["models"][int(selected_model)]
 
         target_model["curr_w"] -= weapon["stats"]["D"]
+        print(f"\n{target_model['name']} took damage! [{target_model['curr_w']} HP left]")
 
         if target_model["curr_w"] <= 0:
-            print(f"{target_model['name']} is dead.")
+            print(f"XX {target_model['name']} is dead. XX")
             defender["models"].remove(target_model)
-        else:
-            print(f"{target_model['name']} took damage! {target_model['curr_w']} HP left")
