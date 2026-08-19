@@ -25,4 +25,4 @@ while len(attacker['models']) > 0 and len(defender['models']) > 0:
 
     attack_phase(attacker, defender)
     attacker, defender = defender, attacker
-    print("Swapping players...")
+    print("\n =====Swapping players...===== \n")

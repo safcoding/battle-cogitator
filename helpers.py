@@ -59,3 +59,12 @@ def find_wounded(defender):
             return target_model
         
     return None
+
+def input_validator(max, input):
+    if input > max:
+        return False
+    elif input < 0:
+        return False
+    else:
+        return True
+    
