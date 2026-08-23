@@ -1,5 +1,5 @@
 import unittest
-import helpers
+import backend.cli.helpers as helpers
 
 class TestHelpers(unittest.TestCase):
 

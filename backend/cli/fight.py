@@ -1,5 +1,5 @@
-import unit_datasheet
-from attack_seq import attack_phase
+import backend.unit_datasheet as unit_datasheet
+from backend.cli.attack_seq import attack_phase
 
 print("++ BEGIN ENCRYPTED MESSAGE ++")
 print("|- BY AUTHORITY OF ARCHMAGOS SAF")
