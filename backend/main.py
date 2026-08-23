@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from cli import helpers
-import unit_datasheet
+from backend.core import helpers
+import backend.core.unit_datasheet as unit_datasheet
 
 app = FastAPI()
 

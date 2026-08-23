@@ -1,4 +1,4 @@
-from weapon_datasheet import weapons
+from backend.core.weapon_datasheet import weapons
 
 def get_weapons(attacker):
     weapon_grp = {}

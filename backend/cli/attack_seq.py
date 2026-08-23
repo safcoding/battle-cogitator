@@ -1,4 +1,4 @@
-import backend.cli.helpers as helpers
+import backend.core.helpers as helpers
 
 def attack_phase(attacker, defender):
     weapon_grp = helpers.get_weapons(attacker)
